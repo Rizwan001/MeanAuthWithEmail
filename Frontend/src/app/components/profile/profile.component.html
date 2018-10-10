@@ -1,0 +1,31 @@
+<div *ngIf="user">
+    <h2 class="page-header">{{user.name}}</h2>
+    <ul class="list-group">
+      <li class="list-group-item">Username : {{user.username}}</li>
+      <li class="list-group-item">Email : {{user.email}}</li>
+    </ul>
+  </div>
+  <!-- Buttons -->
+<!-- Trigger the modal with a button -->
+<button type="button" class="btn btn-info pull-right" (click)="openModal()">Open Modal</button>
+  <br/>
+  <table class="table table-striped table-bordered table-sm row-border hover" datatable [dtOptions]="dtOptions"
+    [dtTrigger]="dtTrigger">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Action</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users$">
+        <td>{{ user.username }}</td>
+        <td>{{ user.email }}</td>
+        <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm" (click)="openModal(user._id)">Small modal</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+<app-register title="{{title}}" ></app-register>
